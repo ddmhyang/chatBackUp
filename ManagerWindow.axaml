@@ -1,0 +1,27 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
+        x:Class="VisualBackUpApp.ManagerWindow"
+        Title="리소스 관리" Height="400" Width="500"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="10" RowDefinitions="Auto, *, Auto">
+        <TextBlock Name="TxtTitle" Text="목록 관리" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <DataGrid Grid.Row="1" Name="DgList" 
+                  AutoGenerateColumns="False"
+                  x:CompileBindings="False"> 
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="번호(ID)" Binding="{Binding Id}" Width="60"/>
+                <DataGridTextColumn Header="이름" Binding="{Binding Name}" Width="100"/>
+                <DataGridTextColumn Header="이미지 주소(URL)" Binding="{Binding Url}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="2" Content="저장하고 닫기" Click="BtnSave_Click" 
+                Height="40" Margin="0,10,0,0" HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"/>
+    </Grid>
+</Window>
